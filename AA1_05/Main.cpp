@@ -10,6 +10,27 @@ struct Ball {
 	color color;
 };
 
+//Si haces resize para hacer la array mas pequeña a pelo, la funcion dejara
+//de copiar valores cuando el size nuevo llegue al maximo perdiendo todo lo siguiente
+Ball* resize(int size, Ball* gunCharger) {
+	Ball* tmp = gunCharger; //guardamos
+	gunCharger = nullptr; //vaciamos
+	gunCharger = new Ball[size]; //creamos
+	for (int i = 0; i < size; i++) { //copiamos del principio para adelante
+		gunCharger[i] = tmp[i];
+	}
+	return gunCharger;
+}
+//Igual que el resize pero en lugar de cargarse lo ultimo se carga lo primero hasta caber
+Ball* inverseResize(int size, Ball* gunCharger) {
+	Ball* tmp = gunCharger; //guardamos
+	gunCharger = nullptr; //vaciamos
+	gunCharger = new Ball[size]; //creamos
+	for (int i = size; i > 0; i--) { //copiamos del final para atras
+		gunCharger[i] = tmp[i];
+	}
+	return gunCharger;
+}
 
 struct Panel {
 	Ball *panel; 
@@ -124,27 +145,6 @@ struct Player {
 	Gun gun;
 };
 
-//Si haces resize para hacer la array mas pequeña a pelo, la funcion dejara
-//de copiar valores cuando el size nuevo llegue al maximo perdiendo todo lo siguiente
-Ball* resize(int size, Ball* gunCharger) {
-	Ball* tmp = gunCharger; //guardamos
-	gunCharger = nullptr; //vaciamos
-	gunCharger = new Ball[size]; //creamos
-	for (int i = 0; i < size; i++) { //copiamos del principio para adelante
-		gunCharger[i] = tmp[i];
-	}
-	return gunCharger;
-}
-//Igual que el resize pero en lugar de cargarse lo ultimo se carga lo primero hasta caber
-Ball* inverseResize(int size, Ball* gunCharger) {
-	Ball* tmp = gunCharger; //guardamos
-	gunCharger = nullptr; //vaciamos
-	gunCharger = new Ball[size]; //creamos
-	for (int i = size; i > 0; i--) { //copiamos del final para atras
-		gunCharger[i] = tmp[i];
-	}
-	return gunCharger;
-}
 
 void init(std::string name, int position) {
 	Player player;
