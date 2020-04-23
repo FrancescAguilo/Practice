@@ -5,14 +5,30 @@ void Player::InsertCard(Card c) {
 	hand.push(c);
 }
 
-Card Player::GetCard(Suit s) {
-	Card tmp;
-	return tmp;
+Card Player::GetCard() {//carta aleatoria de tu mano
+	std::priority_queue<Card, std::vector<Card>, Card::Greater> tmp(hand);
+	std::vector<Card> aux;
+	int i = 0;
+	while (!tmp.empty()) {
+		aux[i] = tmp.top();
+		tmp.pop();
+		i++;
+	}
+	return aux[rand() % aux.size()];
 }
 
-Card Player::GetCard() {
-	Card tmp;
-	return tmp;
+Card Player::GetCard(Suit s) {//carta con valor mas alto del palo
+	std::priority_queue<Card, std::vector<Card>, Card::Greater> tmp(hand);
+	int i = 0;
+	while (!tmp.empty()) {
+		if (tmp.top().palo == s) {
+			return tmp.top();
+		}
+		tmp.pop();
+		i++;
+	}
+
+	
 }
 
 void Player::PrintHand() {

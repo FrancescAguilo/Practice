@@ -1,10 +1,9 @@
 #include "Game.h"
-#include <time.h>
+
 
 
 Game::Game() {
 	//names
-	srand(time(NULL));
 	std::vector<std::string> names = { "Jose", "Maria", "Aina", "Paco", "Alex", "Martin" };
 	p1.id = names[rand() % names.size()];
 	p2.id = names[rand() % names.size()];
