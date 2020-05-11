@@ -5,6 +5,7 @@
 
 class Game
 {
+public:
 	Player p1, p2, p3, p4;
 	std::stack<Card> deck;
 	std::stack<Card> discarted;

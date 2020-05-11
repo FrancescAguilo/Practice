@@ -38,8 +38,8 @@ Game::Game() {
 		p3.hand.push(deck.top());
 		deck.pop();
 
-		p4.hand.push(deck.top());
-		deck.pop();
+		/*p4.hand.push(deck.top());
+		deck.pop();*/
 	}
 
 }

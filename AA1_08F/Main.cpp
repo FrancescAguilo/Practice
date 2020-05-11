@@ -13,10 +13,20 @@
 
 void main() {
 	srand(time(NULL));
-	Game game();
+	bool exit = false;
+	Game game = Game();
+	
 
-	while (!GetKeyState(VK_ESCAPE)) {
 
-	}
-
+	while (true) {
+		std::cout << "Juego de cartas de Francesc Aguilo" << std::endl;
+	
+		if (GetKeyState(VK_ESCAPE)) {
+			exit = true;
+		}
+	
+		Sleep(20);
+		system("CLS");
+	};
+	
 }

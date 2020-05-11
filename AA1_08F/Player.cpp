@@ -35,7 +35,7 @@ void Player::PrintHand() {
 	std::priority_queue<Card, std::vector<Card>, Card::Greater> aux(hand);
 	std::cout << "Cartas:\n";
 	for (int i = 0; i < aux.size(); i++) {
-		std::cout << i << "-" << aux.top().palo << "/" << aux.top().valor << std::endl;
+		std::cout << i << "->" << aux.top().palo << "/" << aux.top().valor << std::endl;
 		aux.pop();
 	}
 }
